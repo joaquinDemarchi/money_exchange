@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<h1>Bienvenido a Money Exchange</h1>
+<p>Administra tus finanzas, transfiere dinero y revisa tu historial de transacciones.</p>
+{% if user.is_authenticated %}
+    <a href="{% url 'profile' %}" class="btn btn-primary">Ir a mi perfil</a>
+{% else %}
+    <a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión</a>
+    <a href="{% url 'register' %}" class="btn btn-secondary">Registrarse</a>
+{% endif %}
+{% endblock %}

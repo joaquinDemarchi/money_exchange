@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Transacción</title>
+</head>
+<body>
+    <h1>Detalle de la Transacción</h1>
+
+    <p><strong>Remitente:</strong> {{ transaction.sender.username }}</p>
+    <p><strong>Destinatario:</strong> {{ transaction.recipient.username }}</p>
+    <p><strong>Cantidad Transferida:</strong> {{ transaction.amount }} {{ transaction.currency }}</p>
+    <p><strong>Fecha:</strong> {{ transaction.timestamp }}</p>
+    
+    <a href="{% url 'profile' %}">Volver al perfil</a>
+</body>
+</html>
+
+<!-- Muestra los detalles de una transacción específica: el nombre del remitente, el destinatario, la cantidad transferida y la fecha de la transacción.
+El uso de {{ transaction.sender.username }} y otros campos es para acceder a las propiedades de la transacción que se pasan al contexto desde la vis -->

@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Transferencia{% endblock %}
+
+{% block content %}
+<h2>Hacer una Transferencia</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Enviar Dinero</button>
+</form>
+{% endblock %}
