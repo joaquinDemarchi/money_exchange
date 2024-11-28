@@ -1,14 +1,15 @@
 {% extends 'core/base.html' %}
 
-{% block title %}Mi Perfil{% endblock %}
-
 {% block content %}
+
 <h2>Hola, {{ user.username }}</h2>
-{% comment %}
-    <img src="{{ user.profile_picture.url }}" alt="Foto de perfil" width="150" height="150" class="rounded-circle"> -->
-{% endcomment %}
+
+<img src="{{ user.profile_picture }}" alt="Foto de perfil" width="150" height="150" class="rounded-circle">
+
 <p>Email: {{ user.email }}</p>
 <p>Saldo: ${{ user.balance }}</p>
+
+<!-- Botones -->
 <a href="{% url 'transfer' %}" class="btn btn-success">Hacer una Transferencia</a>
-<a href="{% url 'pf_update' %}" class="btn btn-warning">editar perfil Transferencia</a>
+<a href="{% url 'pf_update' %}" class="btn btn-warning">Editar perfil</a>
 {% endblock %}

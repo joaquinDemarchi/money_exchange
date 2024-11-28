@@ -79,3 +79,8 @@ class TransactionDetailView(DetailView):
     model = Transaction
     template_name = 'core/transaction_detail.html'
     context_object_name = 'transaction'
+    
+class TransactionList(ListView):
+    model = Transaction
+    template_name = 'core/transaction_list.html'
+    context_object_name = 'transaction'

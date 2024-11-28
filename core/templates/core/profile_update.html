@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar Perfil</title>
 </head>
-<body>
+
+{% extends 'core/base.html' %}
+
+{% block content %}
+
     <h1>{{ title }}</h1>
     
     <form method="post">
@@ -17,10 +21,9 @@
     </form>
 
     <a href="{% url 'profile' %}">Cancelar</a>
-</body>
-</html>
+
+{% endblock %}
 
 <!-- Presenta un formulario para que los usuarios puedan actualizar su perfil.
 El formulario se genera usando {{ form.as_p }}, lo que renderiza los campos del formulario como párrafos (<p>).
 Usa {% csrf_token %} para prevenir ataques CSRF. -->
-
