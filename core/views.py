@@ -48,12 +48,12 @@ class TransactionCreateView(CreateView):
 # Administración
 class AdminUserListView(ListView):
     model = User
-    template_name = 'core/admin_users.html'
+    template_name = 'core/admi_users.html'
     context_object_name = 'users'
 
 class AdminReasonListView(ListView):
     model = TransferReason
-    template_name = 'core/admin_reasons.html'
+    template_name = 'core/admi_reasons.html'
     context_object_name = 'reasons'
     
     

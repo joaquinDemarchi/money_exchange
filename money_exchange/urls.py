@@ -9,5 +9,5 @@ urlpatterns = [
 ]
 
 # Configuración para servir archivos de medios (imágenes de perfil) en desarrollo
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#if settings.DEBUG:
+ #   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

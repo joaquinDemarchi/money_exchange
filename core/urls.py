@@ -10,6 +10,6 @@ urlpatterns = [
     path('profile/', UserProfileView.as_view(), name='profile'),
     path('profile/update', ProfileUpdateView.as_view(), name='pf_update'),
     path('transfer/', TransactionCreateView.as_view(), name='transfer'),
-    path('admin/users/', AdminUserListView.as_view(), name='admin_users'),
-    path('admin/reasons/', AdminReasonListView.as_view(), name='admin_reasons'),
+    path('admi/users/', AdminUserListView.as_view(), name='admi_users'),
+    path('admi/reasons/', AdminReasonListView.as_view(), name='admi_reasons'),
 ]

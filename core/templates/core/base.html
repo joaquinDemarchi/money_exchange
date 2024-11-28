@@ -16,9 +16,11 @@
                     {% if user.is_authenticated %}
                     <!-- Si el usuario está autenticado, muestra las siguientes opciones -->
                         <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Perfil</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="{% url 'pf_update' %}">Actualizar perfil</a></li> -->
                         <li class="nav-item"><a class="nav-link" href="{% url 'transfer' %}">Transferir</a></li>
                         {% if user.is_admin %}
-                            <li class="nav-item"><a class="nav-link" href="{% url 'admin_users' %}">Usuarios</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'admi_users' %}">Usuarios</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'admi_reasons' %}">Motivos Transferencia</a></li>
                         {% endif %}
 
                         <!-- Formulario para logout -->
