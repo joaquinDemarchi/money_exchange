@@ -6,11 +6,12 @@
     
         <p><strong>Remitente:</strong> {{ transaction.sender.username }}</p>
         <p><strong>Destinatario:</strong> {{ transaction.recipient.username }}</p>
-        <p><strong>Cantidad Transferida:</strong> {{ transaction.amount }} {{ transaction.currency }}</p>
+        <p><strong>Cantidad Transferida:</strong> {{ transaction.amount }}</p>
+        <p><strong>Motivo de Transferencia:</strong> {{ transaction.reason }}</p>
         <p><strong>Fecha:</strong> {{ transaction.timestamp }}</p>
     
         
-        <a href="{% url 'profile' %}">Volver al perfil</a>
+        <a href="{% url 'transfer_list' %}">Volver a la lista</a>
 {% endblock %}
 
     

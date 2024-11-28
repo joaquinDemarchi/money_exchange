@@ -2,6 +2,26 @@
 
 {% block content %}
 <h2>Lista de Transferencias</h2>
-
+<table class="table">
+    <thead>
+        <tr>
+            <th>Destinatario</th>
+            <th>Monto</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tx in transactions %}
+        <tr>
+            <td>{{ tx.recipient }}</td>
+            <td>{{ tx.amount }}</td>
+            <td>{{ tx.timestamp }}</td>
+            <td>
+                <a href="{% url 'transfer_details' pk=tx.pk %}" class="btn btn-warning btn-sm">Mas Detalles</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 {% endblock %}

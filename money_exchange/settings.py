@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+USE_I18N = True 
+
+LANGUAGE_CODE = 'es-es'  
+
 
 # Application definition
 
