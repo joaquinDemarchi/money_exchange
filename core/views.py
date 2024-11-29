@@ -56,6 +56,19 @@ class AdminReasonListView(ListView):
     template_name = 'core/admi_reasons.html'
     context_object_name = 'reasons'
 
+class AdminReasonDeleteView(DeleteView):
+    model = TransferReason
+    template_name = 'core/reason_delete.html'  
+    context_object_name = 'reasons'
+    success_url = reverse_lazy('admi_reasons')
+
+class AdminReasonUpdateView(UpdateView):
+    model = TransferReason
+    template_name = 'core/reason_edit.html'
+    form_class = TransferReason
+    context_object_name = 'reasons'
+    success_url = reverse_lazy('admi_reasons')
+
 class ProfileUpdateView(UpdateView):
     model = User
     form_class = ProfileUpdateForm
