@@ -1,7 +1,10 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-    <h1>Detalle de la Transacción</h1>
+    <h2>Detalle de la transacción</h2>
+
+    <br>
+    <br>
 
     
         <p><strong>Remitente:</strong> {{ transaction.sender.username }}</p>
@@ -10,8 +13,9 @@
         <p><strong>Motivo de Transferencia:</strong> {{ transaction.reason }}</p>
         <p><strong>Fecha:</strong> {{ transaction.timestamp }}</p>
     
+    <br>
         
-        <a href="{% url 'transfer_list' %}">Volver a la lista</a>
+        <a class="btn btn-primary mt-3" href="{% url 'transfer_list' %}">Volver a la lista</a>
 {% endblock %}
 
     

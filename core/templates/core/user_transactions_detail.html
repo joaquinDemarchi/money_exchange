@@ -1,0 +1,72 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Detalles de Transacciones de {{ user.username }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Detalles de Movimientos de {{ user.username }}</h2>
+    
+    <!-- Información del Usuario -->
+    <div class="mb-4">
+        <h4>Información del Usuario:</h4>
+        <p>Saldo: ${{ user.balance }}</p>
+        <p>Estado: {{ user.is_active_account|yesno:"Activo,Inactivo" }}</p>
+    </div>
+    
+    <!-- Transacciones Salientes -->
+    <h3>Transacciones Salientes</h3>
+    {% if sent_transactions %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Motivo</th>
+                <th>Destino</th>
+                <th>Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in sent_transactions %}
+            <tr>
+                <td>{{ transaction.timestamp }}</td>
+                <td>{{ transaction.reason.name|default:"No especificado" }}</td>  <!-- Corregido -->
+                <td>{{ transaction.recipient.username }}</td>
+                <td>${{ transaction.amount }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No hay transacciones salientes.</p>
+    {% endif %}
+    
+    <!-- Transacciones Entrantes -->
+    <h3>Transacciones Entrantes</h3>
+    {% if received_transactions %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Motivo</th>
+                <th>Origen</th>
+                <th>Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in received_transactions %}
+            <tr>
+                <td>{{ transaction.timestamp }}</td>
+                <td>{{ transaction.reason.name|default:"No especificado" }}</td>  <!-- Corregido -->
+                <td>{{ transaction.sender.username }}</td>
+                <td>${{ transaction.amount }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No hay transacciones entrantes.</p>
+    {% endif %}
+    
+    <a href="{% url 'admi_users' %}" class="btn btn-primary mt-3">Volver atras</a>
+</div>
+{% endblock %}

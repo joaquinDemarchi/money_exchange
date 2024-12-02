@@ -22,3 +22,19 @@ class ProfileUpdateForm(forms.ModelForm):
         model = User
         fields = ['profile_picture', 'first_name', 'last_name',  'email']
         
+
+class TransactionReasonForm(forms.ModelForm):
+    class Meta:
+        model = TransferReason
+        fields = ['id', 'name']
+        
+
+#ingresar dinero
+class DepositForm(forms.Form):
+    amount = forms.DecimalField(max_digits=10, decimal_places=2, min_value=0.01, label="Monto a depositar")
+
+    def clean_amount(self):
+        amount = self.cleaned_data.get('amount')
+        if amount <= 0:
+            raise forms.ValidationError("El monto debe ser mayor a cero.")
+        return amount

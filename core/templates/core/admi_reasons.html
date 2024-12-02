@@ -1,11 +1,10 @@
 
 {% extends 'core/base.html' %}
 
-{% block title %}Transferencia{% endblock %}
+{% block title %}Modificar Motivos Transferencia{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
-    <h2 class="mb-4">Hacer una Transferencia</h2>
     <h1 class="mb-4">Motivos de Transferencia</h1>
 
     <table class="table table-bordered">
@@ -20,15 +19,9 @@
             <tr>
                 <td>{{ reason.name }}</td>
                 <td>
-                    <a href="{% url 'admi_reasons' pk=reason.pk %}" class="btn btn-warning btn-sm">Editar</a> |
-                    <a href="{% url 'admi_reasons' pk=reason.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
-                    {% comment %}
-                    <!-- <a href="{% url 'admin_reason_edit' reason.id %}" class="btn btn-warning btn-sm">Editar</a> |
-                    <a href="{% url 'admin_reason_delete' reason.id %}" class="btn btn-danger btn-sm">Eliminar</a> -->
-                    {% endcomment %}
+                    <a href="{% url 'edit_reasons' pk=reason.pk %}" class="btn btn-warning btn-sm">Editar</a> 
                 </td>
             </tr>
-            
             {% endfor %}
         </tbody>
     </table>
